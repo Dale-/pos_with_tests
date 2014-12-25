@@ -6,3 +6,5 @@ function Promotion(type, barcodes) {
 Promotion.all = function() {
   return loadPromotions();
 };
+
+module.exports = Promotion;

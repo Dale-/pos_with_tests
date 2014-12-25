@@ -35,3 +35,5 @@ CartItem.prototype.toPromotionText = function() {
   return '名称：' + this.item.name + '，数量：' +
          this.promotionCount + this.item.unit + '\n';
 };
+
+module.exports = CartItem;

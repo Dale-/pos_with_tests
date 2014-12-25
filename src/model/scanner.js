@@ -19,3 +19,5 @@ Scanner.prototype.scan = function(tag) {
   var item = _.find(Item.all(), {barcode : barcode});
   return new CartItem(item, tagCount);
 };
+
+module.exports = Scanner;

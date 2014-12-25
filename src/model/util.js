@@ -8,3 +8,5 @@ Util.toFixed = function(num) {
 Util.toTime = function() {
   return moment().format('YYYY年MM月DD日 HH:mm:ss');
 };
+
+module.exports = Util;

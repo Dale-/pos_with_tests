@@ -8,3 +8,5 @@ function Item(barcode, name, unit, price) {
 Item.all  = function() {
   return loadAllItems();
 };
+
+module.exports = Item;

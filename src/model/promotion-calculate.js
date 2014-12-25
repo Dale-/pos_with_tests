@@ -16,3 +16,5 @@ PromotionCalculate.calculateCartItems = function(cartItems, promotions) {
     PromotionCalculate.calculatePromotionCount(cartItem, promotions);
   });
 };
+
+module.exports = PromotionCalculate;

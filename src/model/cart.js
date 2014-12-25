@@ -63,3 +63,5 @@ Cart.prototype.toString = function(cart) {
          '节省：' + this.getSavingMoney() + '(元)\n' +
          '**********************';
 };
+
+module.exports = Cart;
