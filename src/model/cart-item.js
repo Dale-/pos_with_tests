@@ -1,3 +1,6 @@
+var Item = require('./item');
+var Unit = require('./util');
+
 function CartItem(item, count) {
   this.item = item;
   this.count = count || 0;
@@ -14,7 +17,7 @@ CartItem.prototype.getPrice = function() {
 };
 
 CartItem.prototype.isPromotion = function() {
-  return this.promotionCount !== 0 && this.promotionPrice !== 0.00;
+  return this.promotionCount !== 0 || this.promotionPrice !== 0.00;
 };
 
 CartItem.prototype.getOriginSubtotal = function() {

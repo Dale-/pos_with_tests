@@ -4,7 +4,7 @@ describe('Item', function(){
 
   describe('.all()', function(){
 
-    it('should return correct string',function(){
+    it('should return correct information',function(){
 
       var Item = require('../model/item');
 
