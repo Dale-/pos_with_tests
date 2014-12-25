@@ -74,7 +74,7 @@ describe('CartItem', function(){
 
   describe('#toInventoryText()', function(){
 
-    it('should return correct subtotal',function(){
+    it('should return correct toInventoryText',function(){
 
       var Util = require('../model/util');
       var price = Util.toFixed(item.price);
