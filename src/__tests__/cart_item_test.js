@@ -1,5 +1,6 @@
 jest.dontMock('../model/cart-item');
 jest.dontMock('../model/item');
+jest.dontMock('../model/util');
 
 describe('CartItem', function(){
 
@@ -68,6 +69,24 @@ describe('CartItem', function(){
       var result = cartItem.getSubtotal();
 
       expect(result).toBe(9);
+    });
+  });
+
+  describe('#toInventoryText()', function(){
+
+    it('should return correct subtotal',function(){
+
+      var Util = require('../model/util');
+      var price = Util.toFixed(item.price);
+
+      cartItem.getSubtotal = jest.genMockFn();
+      cartItem.getSubtotal.mockReturnValue(9);
+
+      var subtotal = Util.toFixed(cartItem.getSubtotal());
+      var result = cartItem.toInventoryText();
+
+      expect(result).toBe('名称：雪碧，数量：3瓶，单价：' + price +
+                          '(元)，小计：' + subtotal + '(元)\n');
     });
   });
 

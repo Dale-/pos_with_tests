@@ -1,5 +1,5 @@
 var Item = require('./item');
-var Unit = require('./util');
+var Util = require('./util');
 
 function CartItem(item, count) {
   this.item = item;
