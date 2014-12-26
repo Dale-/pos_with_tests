@@ -22,8 +22,8 @@ Cart.prototype.addCartItem = function(incomingCartItem) {
 
 Cart.prototype.getInventoryText = function() {
   var inventoryText = '';
+
   _.forEach(this.cartItems, function(cartItem) {
-    console.log('=========' + this.cartItems);
     inventoryText += cartItem.toInventoryText();
   });
   return inventoryText;

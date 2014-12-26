@@ -6,49 +6,79 @@ jest.dontMock('../model/cart-item');
 describe('Cart', function(){
 
   var cart;
-  var item;
   var cartItem;
+  var sameCartItem;
 
   beforeEach(function(){
 
-    var CartItem = require('../model/cart-item');
-
-    var cartItem = {
-                    item:{
-                          barcode: 'ITEM000001',
-                          name: '雪碧',
-                          unit: '瓶',
-                          price: 3.00
-                    },
-                    count: 3,
-                    getBarcode : getBarcode,
-                    getPrice : getPrice
-    };
-
-    cartItem.promotionCount = 1;
-    cartItem.promotionPrice = 0;
-
     var Cart = require('../model/cart');
+
+    var toInventoryText = jest.genMockFn();
+    toInventoryText.mockReturnValue('inventoryText\n');
+
+    var getsameBarcode = jest.genMockFn();
+    getsameBarcode.mockReturnValue('ITEM000001');
+
+    cartItem = {
+                item:{
+                      barcode: 'ITEM000001',
+                      name: '雪碧',
+                      unit: '瓶',
+                      price: 3.00
+                     },
+                count: 3,
+                promotionCount: 0,
+                promotionPrice: 0,
+                toInventoryText: toInventoryText,
+                getBarcode: getsameBarcode
+               };
+     sameCartItem = {
+                     item:{
+                           barcode: 'ITEM000001',
+                           name: '雪碧',
+                           unit: '瓶',
+                           price: 3.00
+                         },
+                     count: 3,
+                     promotionCount: 0,
+                     promotionPrice: 0,
+                     toInventoryText: toInventoryText,
+                     getBarcode: getsameBarcode
+                   };
+
     cart = new Cart();
     cart.cartItems = [cartItem,cartItem];
 
+
   });
+
+  // describe('#addCartItem', function(){
+  //
+  //   it('cartItem ',function(){
+  //
+  //     cart.cartItems = [cartItem,cartItem];
+  //
+  //     cart.addCartItem(sameCartItem);
+  //
+  //     expect(sameCartItem.count).toBe(6);
+  //
+  //   });
+
+  // });
 
   describe('#getInventoryText', function(){
 
-    it('should return correct inventoryText',function(){
 
-      var toInventoryText = jest.genMockFn();
-      toInventoryText.mockReturnValue
-                   ('名称：雪碧，数量：3瓶，单价：3.00(元)，小计：9.00(元)\n');
+
+    it('should return correct inventoryText',function(){
 
       var result = cart.getInventoryText();
 
-      expect(result.count).toBe
-            ('名称：雪碧，数量：3瓶，单价：3.00(元)，小计：9.00(元)\n'+
-             '名称：雪碧，数量：3瓶，单价：3.00(元)，小计：9.00(元)\n');
+      expect(result).toBe('inventoryText\ninventoryText\n');
 
     });
 
   });
+
+
 });

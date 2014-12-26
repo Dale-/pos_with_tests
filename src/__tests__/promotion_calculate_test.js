@@ -24,7 +24,8 @@ describe('PromotionCalculate', function() {
                         price: 3.00
                       },
                       count: 3,
-                      
+                      getBarcode: getBarcode,
+                      getPrice: getPrice
                     };
 
       var promotions = [{
