@@ -14,7 +14,6 @@ describe('Cart', function(){
 
   beforeEach(function(){
 
-    // _ = require('lodash');
     var Cart = require('../model/cart');
 
     var toInventoryText = jest.genMockFn();
@@ -45,7 +44,7 @@ describe('Cart', function(){
                      },
                 count: 3,
                 promotionCount: 0,
-                promotionPrice: 0,
+                promotionPrice: 3,
                 toInventoryText: toInventoryText,
                 getBarcode: getsameBarcode,
                 toPromotionText: toPromotionText,
@@ -147,6 +146,17 @@ describe('Cart', function(){
 
   });
 
-  // getSavingMoney
+  describe('#getSavingMoney', function(){
+
+    it('should return correct savingMoney',function(){
+
+      var result = cart.getSavingMoney();
+
+      expect(result).toBe('3.00');
+
+    });
+
+  });
+
 
 });
