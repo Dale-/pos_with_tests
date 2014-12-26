@@ -11,6 +11,10 @@ describe('Util', function(){
       var result = Util.toFixed(2.2345);
 
       expect(result).toBe('2.23');
+
+      // result = Util.toFixed(2.2385);
+      //
+      // expect(result).toBe('2.23');
     });
 
   });

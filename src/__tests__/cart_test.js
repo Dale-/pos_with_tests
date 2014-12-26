@@ -1,4 +1,5 @@
 jest.dontMock('lodash');
+jest.dontMock('../model/util');
 jest.dontMock('../model/item');
 jest.dontMock('../model/cart');
 jest.dontMock('../model/cart-item');
@@ -31,6 +32,10 @@ describe('Cart', function(){
     var getdiffBarcode = jest.genMockFn();
     getdiffBarcode.mockReturnValue('ITEM000003');
 
+    var getSubtotal = jest.genMockFn();
+    getSubtotal.mockReturnValue(23.452);
+
+
     cartItem = {
                 item:{
                       barcode: 'ITEM000001',
@@ -44,7 +49,8 @@ describe('Cart', function(){
                 toInventoryText: toInventoryText,
                 getBarcode: getsameBarcode,
                 toPromotionText: toPromotionText,
-                isPromotion: isPromotion
+                isPromotion: isPromotion,
+                getSubtotal:getSubtotal
                };
 
      sameCartItem = {
@@ -129,5 +135,18 @@ describe('Cart', function(){
 
   });
 
+  describe('#getTotalAmount', function(){
+
+    it('should return correct totalAmount',function(){
+
+      var result = cart.getTotalAmount();
+
+      expect(result).toBe('23.45');
+
+    });
+
+  });
+
+  // getSavingMoney
 
 });
