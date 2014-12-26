@@ -2,7 +2,7 @@ jest.dontMock('../model/item');
 
 describe('Item', function(){
 
-  describe('.all()', function(){
+  describe('.all', function(){
 
     it('should return correct information',function(){
 

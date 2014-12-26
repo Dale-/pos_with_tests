@@ -2,7 +2,7 @@ jest.dontMock('../model/promotion');
 
 describe('Promotion', function(){
 
-  describe('.all()', function(){
+  describe('.all', function(){
 
     it('should return correct promotion information',function(){
 

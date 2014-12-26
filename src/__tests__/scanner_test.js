@@ -13,7 +13,7 @@ describe('Scanner', function(){
     scanner = new Scanner();
   });
 
-  describe('#getTagCount()', function(){
+  describe('#getTagCount', function(){
 
     it('should return correct tagCount',function(){
 
@@ -23,7 +23,7 @@ describe('Scanner', function(){
     });
   });
 
-  describe('#scan()', function(){
+  describe('#scan', function(){
 
     it('should return correct cartItem',function(){
 

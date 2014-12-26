@@ -2,7 +2,7 @@ jest.dontMock('../model/util');
 
 describe('Util', function(){
 
-  describe('.toFixed()', function(){
+  describe('.toFixed', function(){
 
     it('should return correct promotion num format',function(){
 

@@ -1,4 +1,9 @@
 var _ = require('lodash');
+var Item = require('./item');
+var Util = require('./util');
+var CartItem = require('./cart-item');
+var Promotion = require('./promotion');
+var PromotionCalculate = require('./promotion-calculate');
 
 function Cart() {
   this.cartItems = [];
@@ -18,6 +23,7 @@ Cart.prototype.addCartItem = function(incomingCartItem) {
 Cart.prototype.getInventoryText = function() {
   var inventoryText = '';
   _.forEach(this.cartItems, function(cartItem) {
+    console.log('=========' + this.cartItems);
     inventoryText += cartItem.toInventoryText();
   });
   return inventoryText;

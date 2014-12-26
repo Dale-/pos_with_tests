@@ -17,7 +17,7 @@ describe('CartItem', function(){
     cartItem.promotionPrice = 0;
   });
 
-  describe('#getBarcode()', function(){
+  describe('#getBarcode', function(){
 
     it('should return correct barcode',function(){
 
@@ -28,7 +28,7 @@ describe('CartItem', function(){
   });
 
 
-  describe('#getPrice()', function(){
+  describe('#getPrice', function(){
 
     it('should return correct price',function(){
 
@@ -38,7 +38,7 @@ describe('CartItem', function(){
     });
   });
 
-  describe('#isPromotion()', function(){
+  describe('#isPromotion', function(){
 
     it('should return correct isPromotion',function(){
 
@@ -48,7 +48,7 @@ describe('CartItem', function(){
     });
   });
 
-  describe('#getOriginSubtotal()', function(){
+  describe('#getOriginSubtotal', function(){
 
     it('should return correct originSubtotal',function(){
 
@@ -58,7 +58,7 @@ describe('CartItem', function(){
     });
   });
 
-  describe('#getSubtotal()', function(){
+  describe('#getSubtotal', function(){
 
     it('should return correct subtotal',function(){
 
@@ -72,7 +72,7 @@ describe('CartItem', function(){
     });
   });
 
-  describe('#toInventoryText()', function(){
+  describe('#toInventoryText', function(){
 
     it('should return correct toInventoryText',function(){
 
@@ -90,7 +90,7 @@ describe('CartItem', function(){
     });
   });
 
-  describe('#toPromotionText()', function(){
+  describe('#toPromotionText', function(){
 
     it('should return correct promotionText',function(){
 
