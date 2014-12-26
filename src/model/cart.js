@@ -58,6 +58,7 @@ Cart.prototype.getSavingMoney = function() {
 };
 
 Cart.prototype.toString = function(cart) {
+
   PromotionCalculate.calculateCartItems(cart.cartItems, Promotion.all());
   return '***<没钱赚商店>购物清单***\n' +
          '打印时间：' + Util.toTime() + '\n' +

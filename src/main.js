@@ -10,7 +10,7 @@ function printInventory(tags) {
     var cartItem = scanner.scan(tag);
     cart.addCartItem(cartItem);
   });
-
+  
   console.log(cart.toString(cart));
 }
 

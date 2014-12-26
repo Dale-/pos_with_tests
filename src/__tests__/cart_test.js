@@ -3,10 +3,11 @@ jest.dontMock('../model/util');
 jest.dontMock('../model/item');
 jest.dontMock('../model/cart');
 jest.dontMock('../model/cart-item');
+jest.dontMock('../model/promotion-calculate');
+jest.dontMock('../model/promotion');
 
 describe('Cart', function(){
 
-  // var _;
   var cart;
   var cartItem;
   var sameCartItem;
@@ -31,8 +32,11 @@ describe('Cart', function(){
     var getdiffBarcode = jest.genMockFn();
     getdiffBarcode.mockReturnValue('ITEM000003');
 
+    var getPrice = jest.genMockFn();
+    getPrice.mockReturnValue(3.00);
+
     var getSubtotal = jest.genMockFn();
-    getSubtotal.mockReturnValue(23.452);
+    getSubtotal.mockReturnValue(6.00);
 
 
     cartItem = {
@@ -47,6 +51,7 @@ describe('Cart', function(){
                 promotionPrice: 3,
                 toInventoryText: toInventoryText,
                 getBarcode: getsameBarcode,
+                getPrice: getPrice,
                 toPromotionText: toPromotionText,
                 isPromotion: isPromotion,
                 getSubtotal:getSubtotal
@@ -140,7 +145,7 @@ describe('Cart', function(){
 
       var result = cart.getTotalAmount();
 
-      expect(result).toBe('23.45');
+      expect(result).toBe('6.00');
 
     });
 
@@ -153,6 +158,36 @@ describe('Cart', function(){
       var result = cart.getSavingMoney();
 
       expect(result).toBe('3.00');
+
+    });
+
+  });
+
+  describe('#toString', function(){
+
+    it('should return correct string',function(){
+
+      cartItem.promotionCount = 1;
+
+      var result = cart.toString(cart);
+
+      var moment = require('moment');
+
+      var expectText =
+                      '***<没钱赚商店>购物清单***\n' +
+                      '打印时间：' + moment().format('YYYY年MM月DD日 HH:mm:ss') +
+                      '\n' +
+                      '----------------------\n' +
+                      'inventoryText\n' +
+                      '----------------------\n' +
+                      '挥泪赠送商品：\n' +
+                      'PromotionText\n' +
+                      '----------------------\n' +
+                      '总计：6.00(元)\n' +
+                      '节省：3.00(元)\n' +
+                      '**********************' ;
+
+      expect(result).toBe(expectText);
 
     });
 

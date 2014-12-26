@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var CartItem = require('./cart-item');
 
 function PromotionCalculate() {
 }
