@@ -1,4 +1,5 @@
 jest.dontMock('lodash');
+jest.dontMock('moment');
 jest.dontMock('../model/util');
 jest.dontMock('../model/item');
 jest.dontMock('../model/cart');
@@ -166,12 +167,12 @@ describe('Cart', function(){
   describe('#toString', function(){
 
     it('should return correct string',function(){
+      var moment = require('moment');
 
       cartItem.promotionCount = 1;
 
       var result = cart.toString(cart);
 
-      var moment = require('moment');
 
       var expectText =
                       '***<没钱赚商店>购物清单***\n' +
